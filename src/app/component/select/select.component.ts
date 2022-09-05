@@ -16,6 +16,7 @@ export class SelectComponent implements OnInit {
   // myControl = new FormControl('');
   myControlCountry = new FormControl('');
   myControlDepartament = new FormControl('');
+  myControlCity = new FormControl('');
   // options: string[] = ['Colombia','Brazil','Perú','Argentina'];
   optionsCountry: string[] = ['Colombia','Brazil','Perú','Argentina'];
   filteredOptions?: Observable<string[]>;
@@ -45,5 +46,9 @@ export class SelectComponent implements OnInit {
     console.log(optionSel);
     console.log(this.dataSvc.getDepartaments());
     this.departaments = this.dataSvc.getDepartaments().filter(item => item.countryId === optionSel);
+  }
+  
+  getSelectOptionDepartament() {
+    
   }
 }

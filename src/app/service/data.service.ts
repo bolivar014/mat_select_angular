@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 // Importamos modelo
-import { DepartamentI } from '../models/model.interface';
+import { DepartamentI, CityI } from '../models/model.interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -39,8 +39,76 @@ export class DataService {
     }
   ]
 
+  // Provider Cities
+  private cities: CityI[] = [
+    {
+      id: 1,
+      countryId: "Brazil",
+      departamentId: 6,
+      name: 'Sao Paulo'
+    }, {
+      id: 2,
+      countryId: "Brazil",
+      departamentId: 7,
+      name: 'Brasilia'
+    }, {
+      id: 3,
+      countryId: "España",
+      departamentId: 2,
+      name: 'Barcelona'
+    }, {
+      id: 4,
+      countryId: "España",
+      departamentId: 2,
+      name: 'Madrid'
+    }, {
+      id: 5,
+      countryId: "Peru",
+      departamentId: 3,
+      name: 'Lima'
+    }, {
+      id: 6,
+      countryId: "Peru",
+      departamentId: 3,
+      name: 'Trujillo'
+    }, {
+      id: 7,
+      countryId: "Argentina",
+      departamentId: 4,
+      name: 'Buenos Aires'
+    }, {
+      id: 8,
+      countryId: "Argentina",
+      departamentId: 4,
+      name: 'La Plata'
+    }, {
+      id: 9,
+      countryId: "Argentina",
+      departamentId: 5,
+      name: 'La Romana'
+    }, {
+      id: 10,
+      countryId: "Republica dominicana",
+      departamentId: 5,
+      name: 'Santiago'
+    }, {
+      id: 11,
+      countryId: "Colombia",
+      departamentId: 1,
+      name: 'Medellín'
+    }, {
+      id: 12,
+      countryId: "Colombia",
+      departamentId: 4,
+      name: 'Bogota'
+    }
+  ]
+
   getDepartaments(): DepartamentI[] {
     return this.departaments;
   }
 
+  getCities(): CityI[] {
+    return this.cities;
+  }
 }
