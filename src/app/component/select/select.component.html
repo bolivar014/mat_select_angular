@@ -15,4 +15,17 @@
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Departamento</mat-label>
+    <input type="text"
+            placeholder="Seleccione departamento"
+            aria-label="Departamento"
+            matInput
+            [matAutocomplete]="auto">
+            <mat-autocomplete>
+              <mat-option *ngFor="let departament of departaments">
+                {{ departament }}
+              </mat-option>
+            </mat-autocomplete>
+  </mat-form-field>
 </form>
