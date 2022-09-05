@@ -29,7 +29,9 @@
             >
             <mat-autocomplete #autoComplete="matAutocomplete">
               <mat-option *ngFor="let departament of departaments" [value]="departament.name">
+              <!--<mat-option *ngFor="let departament of departaments | async" [value]="departament">-->
                 {{ departament.name }}
+                <!--{{ departament}}-->
               </mat-option>
             </mat-autocomplete>
   </mat-form-field>

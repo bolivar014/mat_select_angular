@@ -25,6 +25,7 @@ export class SelectComponent implements OnInit {
   strCountrySelected?: string;
   // 
   public departaments?: DepartamentI[];
+  // departaments?: Observable<string[]>;
   public cities?: CityI[];
   constructor(private dataSvc: DataService) { }
 
@@ -33,12 +34,27 @@ export class SelectComponent implements OnInit {
       startWith(''),
       map(value => this._filter(value || '')),
     );
+
+    /*
+    this.departaments = this.myControlDepartament.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filterDepts(value || '')),
+    );
+    */
   }
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
     return this.optionsCountry.filter(optionsCountry => optionsCountry.toLowerCase().includes(filterValue));
   }
+
+  /*
+  private _filterDepts(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return this.dataSvc.getDepartaments().filter(item => item.countryId === filterValue);
+    // return this.dataSvc.getDepartaments();
+  }
+  */
 
   // Get para determinar los departamentos
   getSelectOption(optionSel: string) {
