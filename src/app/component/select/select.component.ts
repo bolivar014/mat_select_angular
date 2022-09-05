@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Event } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
@@ -14,6 +15,7 @@ export class SelectComponent implements OnInit {
   // options: string[] = ['Colombia','Brazil','Perú','Argentina'];
   optionsCountry: string[] = ['Colombia','Brazil','Perú','Argentina'];
   filteredOptions?: Observable<string[]>;
+  selectedOption?: string[];
 
   ngOnInit() {
     // this.filteredOptions = this.myControl.valueChanges.pipe(
@@ -28,5 +30,10 @@ export class SelectComponent implements OnInit {
 
     // return this.options.filter(option => option.toLowerCase().includes(filterValue));
     return this.optionsCountry.filter(optionsCountry => optionsCountry.toLowerCase().includes(filterValue));
+  }
+
+  getSelectOption(optionSel: Event) {
+    
+    console.log(optionSel);
   }
 }

@@ -7,7 +7,8 @@
            aria-label="Pais"
            matInput
            [formControl]="myControlCountry"
-           [matAutocomplete]="auto">
+           [matAutocomplete]="auto"
+           (ngModelChange)="getSelectOption($event)">
     <mat-autocomplete #auto="matAutocomplete">
       <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
         {{option}}
