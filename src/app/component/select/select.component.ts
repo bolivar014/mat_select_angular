@@ -29,7 +29,6 @@ export class SelectComponent implements OnInit {
   constructor(private dataSvc: DataService) { }
 
   ngOnInit() {
-    // this.filteredOptions = this.myControl.valueChanges.pipe(
     this.filteredOptions = this.myControlCountry.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value || '')),
@@ -38,7 +37,6 @@ export class SelectComponent implements OnInit {
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-    // return this.options.filter(option => option.toLowerCase().includes(filterValue));
     return this.optionsCountry.filter(optionsCountry => optionsCountry.toLowerCase().includes(filterValue));
   }
 
