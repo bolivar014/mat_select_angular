@@ -1,12 +1,12 @@
 <p>select works!</p>
 <form class="example-form">
   <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Number</mat-label>
+    <mat-label>Pais</mat-label>
     <input type="text"
-           placeholder="Pick one"
-           aria-label="Number"
+           placeholder="Seleccione opción"
+           aria-label="Pais"
            matInput
-           [formControl]="myControl"
+           [formControl]="myControlCountry"
            [matAutocomplete]="auto">
     <mat-autocomplete #auto="matAutocomplete">
       <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
