@@ -20,11 +20,12 @@ export class SelectComponent implements OnInit {
   // options: string[] = ['Colombia','Brazil','Perú','Argentina'];
   optionsCountry: string[] = ['Colombia','Brasil','Perú','Argentina'];
   filteredOptions?: Observable<string[]>;
+  filteredOptionsDep?: Observable<string[]>;
   selectedOption?: string[];
+  strCountrySelected?: string;
   // 
   public departaments?: DepartamentI[];
   public cities?: CityI[];
-  strCountrySelected?: string;
   constructor(private dataSvc: DataService) { }
 
   ngOnInit() {
@@ -37,7 +38,6 @@ export class SelectComponent implements OnInit {
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-
     // return this.options.filter(option => option.toLowerCase().includes(filterValue));
     return this.optionsCountry.filter(optionsCountry => optionsCountry.toLowerCase().includes(filterValue));
   }
@@ -47,6 +47,12 @@ export class SelectComponent implements OnInit {
     this.strCountrySelected = optionSel;
     console.log('country: ', optionSel);
     console.log(this.dataSvc.getDepartaments());
+
+    // Reset default 
+    this.myControlDepartament.reset('');
+    this.myControlCity.reset('');
+    
+    // Asignamos obj departaments
     this.departaments = this.dataSvc.getDepartaments().filter(item => item.countryId === optionSel);
   }
   
@@ -54,6 +60,11 @@ export class SelectComponent implements OnInit {
   getSelectOptionDepartament(optionSelDepartament: string) {
     console.log('Departament: ', optionSelDepartament);
     console.log(this.dataSvc.getCities());
+
+    // Reset default
+    this.myControlCity.reset('');
+
+    // Asignamos obj Cities
     this.cities = this.dataSvc.getCities().filter(item => item.countryId === this.strCountrySelected && item.departamentId === optionSelDepartament);
   }
 }
