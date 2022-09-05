@@ -27,7 +27,7 @@
             [matAutocomplete]="autoComplete"
             >
             <mat-autocomplete #autoComplete="matAutocomplete">
-              <mat-option *ngFor="let departament of departaments">
+              <mat-option *ngFor="let departament of departaments" [value]="departament.name">
                 {{ departament.name }}
               </mat-option>
             </mat-autocomplete>
