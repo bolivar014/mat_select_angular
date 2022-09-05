@@ -4,7 +4,7 @@ import { Event } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { DataService } from 'src/app/service/data.service';
-import { DepartamentI } from '../../models/model.interface';
+import { DepartamentI, CityI } from '../../models/model.interface';
 
 @Component({
   selector: 'app-select',
@@ -18,12 +18,13 @@ export class SelectComponent implements OnInit {
   myControlDepartament = new FormControl('');
   myControlCity = new FormControl('');
   // options: string[] = ['Colombia','Brazil','Perú','Argentina'];
-  optionsCountry: string[] = ['Colombia','Brazil','Perú','Argentina'];
+  optionsCountry: string[] = ['Colombia','Brasil','Perú','Argentina'];
   filteredOptions?: Observable<string[]>;
   selectedOption?: string[];
   // 
   public departaments?: DepartamentI[];
-
+  public cities?: CityI[];
+  strCountrySelected?: string;
   constructor(private dataSvc: DataService) { }
 
   ngOnInit() {
@@ -41,14 +42,18 @@ export class SelectComponent implements OnInit {
     return this.optionsCountry.filter(optionsCountry => optionsCountry.toLowerCase().includes(filterValue));
   }
 
+  // Get para determinar los departamentos
   getSelectOption(optionSel: string) {
-    
-    console.log(optionSel);
+    this.strCountrySelected = optionSel;
+    console.log('country: ', optionSel);
     console.log(this.dataSvc.getDepartaments());
     this.departaments = this.dataSvc.getDepartaments().filter(item => item.countryId === optionSel);
   }
   
-  getSelectOptionDepartament() {
-    
+  // Get para determinar las ciudades asociadas a los departamentos
+  getSelectOptionDepartament(optionSelDepartament: string) {
+    console.log('Departament: ', optionSelDepartament);
+    console.log(this.dataSvc.getCities());
+    this.cities = this.dataSvc.getCities().filter(item => item.countryId === this.strCountrySelected && item.departamentId === optionSelDepartament);
   }
 }

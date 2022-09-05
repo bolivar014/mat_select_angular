@@ -25,7 +25,7 @@
             matInput
             [formControl]="myControlDepartament"
             [matAutocomplete]="autoComplete"
-            (ngModelChange)="getSelectOptionDepartament()"
+            (ngModelChange)="getSelectOptionDepartament($event)"
             >
             <mat-autocomplete #autoComplete="matAutocomplete">
               <mat-option *ngFor="let departament of departaments" [value]="departament.name">
@@ -41,11 +41,11 @@
             aria-label="Ciudad"
             matInput
             [formControl]="myControlCity"
-            [matAutocomplete]="autoComplete"
+            [matAutocomplete]="autoCompleteCity"
             >
-            <mat-autocomplete #autoComplete="matAutocomplete">
-              <mat-option *ngFor="let departament of departaments" [value]="departament.name">
-                {{ departament.name }}
+            <mat-autocomplete #autoCompleteCity="matAutocomplete">
+              <mat-option *ngFor="let citie of cities" [value]="citie.name">
+                {{ citie.name }}
               </mat-option>
             </mat-autocomplete>
   </mat-form-field>

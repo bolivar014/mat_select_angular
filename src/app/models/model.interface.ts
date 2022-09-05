@@ -9,6 +9,6 @@ export interface DepartamentI {
 export interface CityI {
     id: number;
     countryId: string;
-    departamentId: number;
+    departamentId: string;
     name: string;
 }
