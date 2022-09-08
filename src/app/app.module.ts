@@ -9,11 +9,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
-
+import { SelectDemoComponent } from './component/select-demo/select-demo.component';
+// Importamos libreria http y su respectivo modulo
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    SelectComponent
+    SelectComponent,
+    SelectDemoComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
     ReactiveFormsModule,
     MatSelectModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
