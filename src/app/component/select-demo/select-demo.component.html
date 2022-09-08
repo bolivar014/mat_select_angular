@@ -1,1 +1,32 @@
 <p>select-demo works!</p>
+
+<mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Pais</mat-label>
+    <input type="text"
+           placeholder="Seleccione opción"
+           aria-label="Pais"
+           matInput
+           [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option >
+        
+      </mat-option>
+    </mat-autocomplete>
+</mat-form-field>
+
+<!--<mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Pais</mat-label>
+    <input type="text"
+           placeholder="Seleccione opción"
+           aria-label="Pais"
+           matInput
+           [formControl]="myControlCountry"
+           [matAutocomplete]="auto"
+           (ngModelChange)="getSelectOption($event)">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+</mat-form-field>-->
+

@@ -11,11 +11,22 @@ import { Country } from 'src/app/models/country.interface';
   styleUrls: ['./select-demo.component.css']
 })
 export class SelectDemoComponent implements OnInit {
+  
+  private baseURL = environment.api;
+  // filteredOptions$ = this.getAll();
+  ctcountry$ = this.createCountry();
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   getAll(): Observable<Country[]> {
-    return this.httpClient.get<Country[]>(environment.api);
+    console.log(this.http.get<Country[]>(`${this.baseURL}`));
+    return this.http.get<Country[]>(`${this.baseURL}`);
+  }
+
+  createCountry(): Observable<Country> {
+    const body = { name: 'Colombia' };
+    // return this.http.post<Country>(`${this.baseURL}`, this.body);
+    return this.http.post<Country>(this.baseURL, body);
   }
 
   ngOnInit(): void {
