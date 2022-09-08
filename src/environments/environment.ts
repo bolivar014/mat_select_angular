@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   // api: 'https://api.first.org/data/v1/countries'
   api: 'https://crudcrud.com/api/1ab23ca34596472c91fd3cd3e770a3a1/country'
+  // api: 'https://crudcrud.com/api/1ab23ca34596472c91fd3cd3e770a3a1/unicorns'
 };
 
 /*

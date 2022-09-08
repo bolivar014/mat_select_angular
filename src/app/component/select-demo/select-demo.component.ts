@@ -14,13 +14,15 @@ export class SelectDemoComponent implements OnInit {
   
   private baseURL = environment.api;
   // filteredOptions$ = this.getAll();
-  ctcountry$ = this.createCountry();
+  // ctcountry$ = this.createCountry();
 
   constructor(private http: HttpClient) { }
 
+  // Recupero datos almacenados en el servidor...
   getAll(): Observable<Country[]> {
-    console.log(this.http.get<Country[]>(`${this.baseURL}`));
-    return this.http.get<Country[]>(`${this.baseURL}`);
+    console.log('httpRequest Get', this.http.get<Country[]>(this.baseURL));
+    // return this.http.get<Country[]>(`${this.baseURL}`);
+    return this.http.get<Country[]>(this.baseURL);
   }
 
   createCountry(): Observable<Country> {
@@ -30,6 +32,7 @@ export class SelectDemoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.createCountry();
   }
 
 }
